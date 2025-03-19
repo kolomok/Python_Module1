@@ -24,3 +24,7 @@ def save(tasks):
     with open(file, "w") as f:
         for taskid, task in tasks.item():
             f.write(f"{taskid} | {task['Название']} | {task['Описание']} | {task['Приоритет']} | {task['Статус']}")
+
+def createtask(tasks):
+    title = input("Введите название задачи: ")
+    description = input("Введите описание задачи: ")
