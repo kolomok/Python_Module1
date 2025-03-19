@@ -40,3 +40,12 @@ def createtask(tasks):
         if status in statuses: 
             break 
         print("Ошибка! Введите правильное значение: ")
+    taskid = tasknextid(tasks)
+    tasks[taskid] = {"Название": title,
+                 "Описание": description,
+                 "Статус": statuses[status],
+                 "Приоритет": prioties[priority]
+    }
+
+    save(tasks)
+    print(f"Задача с ID {taskid} создана!")
