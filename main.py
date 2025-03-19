@@ -58,3 +58,12 @@ def disp(tasks):
     print('\n Список задач:')
     for taskid, task in tasks.item():
         print (f"[{taskid}] {task['Название']} | {task['Приоритет']} | {task['Статус']}")
+
+def delete(tasks):
+    taskid = input('Введите ID задачт для удаления: ')
+    if taskid in tasks:
+        del tasks[taskid]
+        save(tasks)
+        print("Задача удалена")
+    else:
+        print("Задача не найдега")
