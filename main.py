@@ -27,4 +27,16 @@ def save(tasks):
 
 def createtask(tasks):
     title = input("Введите название задачи: ")
-    description = input("Введите описание задачи: ")
+    description = input("Введите описание задачи: ") 
+    
+    while True: 
+        priority = input("Задайте приоритет задаче:")
+        if priority in prioties:
+            break 
+        print("Ошибка! Введите правильное значение: ")
+
+    while True: 
+        status = input("Задайте статус задаче: ")
+        if status in statuses: 
+            break 
+        print("Ошибка! Введите правильное значение: ")
