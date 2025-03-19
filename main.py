@@ -64,6 +64,43 @@ def delete(tasks):
     if taskid in tasks:
         del tasks[taskid]
         save(tasks)
-        print("Задача удалена")
+        print(f"Задача {taskid} удалена")
     else:
         print("Задача не найдега")
+
+def update(tasks):
+    taskid = input('Введите ID задачи для изменения: ')
+    if taskid not in tasks:
+        print("Задача не найдена")
+        return 
+    
+    print('Что хотите изменить?')
+    print('1 - Название задачи\n2 - Описание задачи\n3 - Статус задачи\n4 - Приоритет задачи')
+
+    choice = input("Введите число: ")
+
+    if choice == 1: 
+        taskid[tasks]["Название"] = input("Введите новое название задачи: ")
+    if choice == 2:
+        taskid[tasks]["Описание"] = input('Введите новое описание задачи: ')
+    if choice == 3:
+        while True:
+            priority = input("Выберите приоритет (1 - низкий, 2 - средний, 3 - высокий): ")
+            if priority in prioties:
+                tasks[taskid]['Приоритет'] = prioties[priority]
+                break
+            print("Неверный ввод! Повторите попытку.")
+    else:
+        print('Неверный ввод!')
+    if choice == 4:
+        while True:
+            status = input('Выберите статус (1 - новая, 2 - в процессе, 3 - завершена):')
+            if status in statuses:
+                tasks[taskid]['Статус'] = statuses[status]
+                break
+            print('Неверный ввод! Повторите попытку.')
+    else:
+        print('Неверный ввод!')
+
+    save(tasks)
+    print(f"Задача {taskid} обновлена")
