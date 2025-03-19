@@ -23,7 +23,7 @@ def tasknextid(taskid):
 def save(tasks):
     with open(file, "w") as f:
         for taskid, task in tasks.item():
-            f.write(f"{taskid} | {task['Название']} | {task['Описание']} | {task['Приоритет']} | {task['Статус']}")
+            f.write(f"{taskid} | {task['Название']} | {task['Описание']} | {task['Приоритет']} | {task['Статус']} \n")
 
 def createtask(tasks):
     title = input("Введите название задачи: ")
@@ -49,3 +49,12 @@ def createtask(tasks):
 
     save(tasks)
     print(f"Задача с ID {taskid} создана!")
+    
+def disp(tasks):
+    if not tasks:
+        print('Нет задач')
+        return
+    
+    print('\n Список задач:')
+    for taskid, task in tasks.item():
+        print (f"[{taskid}] {task['Название']} | {task['Приоритет']} | {task['Статус']}")
