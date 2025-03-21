@@ -34,7 +34,7 @@ def createtask(tasks):
     description = input("Введите описание задачи: ") 
     
     while True: 
-        priority = int(input("Задайте приоритет задаче:"))
+        priority = int(input(f"Задайте приоритет задаче:{prioties}"))
         if priority in prioties:
             break 
         print("Ошибка! Введите правильное значение: ")
